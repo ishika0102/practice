@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
+import logins from './login/LoginSeller';
+import loginv from './login/LoginSuplier';
+import Nav from './Nav';
+import React from 'react';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import registers from './register/RegisterSeller';
+import registerv from './register/RegisterSuplier';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+    <div className= "App">
+    <Nav/>
+      <Switch>
+      <Route path="/sellerlogin" component={logins}/>
+      <Route path="/suplierlogin" component={loginv}/>
+      <Route path="/sellerregister" component={registers}/>
+      <Route path="/suplierregister" component={registerv}/>
+      </Switch>
     </div>
+    </Router>
+
   );
 }
 
